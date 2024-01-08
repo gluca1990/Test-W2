@@ -9,36 +9,37 @@ REGOLE
 
 /* ESERCIZIO 1
     Dato il seguente array, scrivi del codice per stampare ogni elemento dell'array in console.
-
+*/
 const pets = ['dog', 'cat', 'hamster', 'redfish']
-
-
-for (let i = 0 ; i < pets.length ; i++) {
+/* pets.forEach(element => {
+  console.log(element)
+}); */
+for (let i = 0; i < pets.length; i++) {
   console.log(pets[i])
-  }
+}
 
 /* ESERCIZIO 2
     Scrivi del codice per ordinare alfabeticamente gli elementi dell'array "pets".
-
-let petsABC = []
-petsABC = pets.sort()
-console.log(petsABC)
+*/
+pets.sort()
+console.log(pets)
+/* let cat = pets.splice(0,1)
+console.log(cat)
+pets.unshift(cat)
+console.log(pets) */
 
 /* ESERCIZIO 3
     Scrivi del codice per stampare nuovamente in console gli elementi dell'array "pets", questa volta in ordine invertito.
+*/
+for (let i = (pets.length - 1); i >= 0; i--) {
+  console.log(pets[i])
+}
 
-
-let petsCBA = []
-petsCBA = petsABC.reverse()
-console.log(petsCBA)
 
 /* ESERCIZIO 4
     Scrivi del codice per spostare il primo elemento dall'array "pets" in ultima posizione.
-
-let z = pets.shift()
-console.log(z)
-console.log(pets)
-pets.push(z)
+*/
+pets.push(pets.shift())
 console.log(pets)
 
 /* ESERCIZIO 5
@@ -65,51 +66,52 @@ const cars = [
   },
 ]
 
-
-cars[0].licensePlate = "default"
-cars[1].licensePlate = "default"
-cars[2].licensePlate = "default"
-console.log(cars)
-
-
+cars.forEach(element => {
+  element.licensePlate = "000";
+  console.log(element)
+});
 
 
 /* ESERCIZIO 6
     Scrivi del codice per aggiungere un nuovo oggetto in ultima posizione nell'array "cars", rispettando la struttura degli altri elementi.
     Successivamente, rimuovi l'ultimo elemento della proprietà "trims" da ogni auto.
 */
-cars.push({
-  brand: '',
-  model: '',
-  color: '',
-  trims: [],
-  licensePlate: ""})
-
-console.log(cars)
-
-for (let i=0; i<cars.length; i++) {
-  cars[i].trims.pop()
+let newCar = {
+  brand: 'Tesla',
+  model: 'Model S',
+  color: 'grey',
+  trims: ['single', 'double'],
 }
+
+cars.push(newCar)
+
+cars.forEach(element => {
+  element.trims.pop()
+})
+
 console.log(cars)
 
 /* ESERCIZIO 7
     Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel nuovo array "justTrims", sotto definito.
 */
 const justTrims = []
-
-for (let i=0; i<cars.length; i++) {
-  justTrims[i] = cars[i].trims.shift()
+for (let i = 0; i < cars.length; i++) {
+  justTrims.push(cars[i].trims.shift())
 }
 console.log(justTrims)
+
 
 /* ESERCIZIO 8
     Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi in console. Se la prima lettera della proprietà
     "color" ha valore "b", mostra in console "Fizz". Altrimenti, mostra in console "Buzz".
 */
-
-for (let i=0 ; i< cars.length; i++) {
-  if( cars[i].color.indexOf("b") === 0) {console.log("Fizz")}
- else {console.log("Buzz")}
+for (let i = 0; i < cars.length; i++) {
+  if (cars[i].color.charAt(0) === "b") {
+    console.log("Fizz")
+  }
+  else {
+    console.log("Buzz")
+  }
 }
 
 /* ESERCIZIO 9
@@ -118,9 +120,17 @@ for (let i=0 ; i< cars.length; i++) {
 const numericArray = [
   6, 90, 45, 75, 84, 98, 35, 74, 31, 2, 8, 23, 100, 32, 66, 313, 321, 105,
 ]
-let i = 0 
-while (numericArray[i] !== 66) {console.log(numericArray[i])
-  i++}
+for (let i = 0; i < numericArray.length; i++) {
+  if (numericArray[i] !== 32) {
+    console.log(numericArray[i])
+  }
+  else {
+    console.log(numericArray[i]);
+    break
+  }
+}
+/* Avevo scritto while al posto di if e stava succedendo qualcosa di interessante... */
+
 
 /* ESERCIZIO 10
     Partendo dall'array fornito e utilizzando un costrutto switch, genera un nuovo array composto dalle posizioni di ogni carattere all'interno
@@ -128,35 +138,18 @@ while (numericArray[i] !== 66) {console.log(numericArray[i])
     es. [f, b, e] --> [6, 2, 5]
 */
 const charactersArray = ['g', 'n', 'u', 'z', 'd']
-
-{}
-let newArr = []
-for (let i = 0; i< charactersArray.length; i++){
-  switch(charactersArray[i]) { 
-  case "a": newArr.push(1); break;
-  case "b": newArr.push(2); break;
-  case "c": newArr.push(3); break;
-  case "d": newArr.push(4); break;
-  case "e": newArr.push(5); break;
-  case "f": newArr.push(6); break;
-  case "g": newArr.push(7); break;
-  case "h": newArr.push(8); break;
-  case "i": newArr.push(9); break;
-  case "l": newArr.push(10); break;
-  case "m": newArr.push(11); break;
-  case "n": newArr.push(12); break;
-  case "o": newArr.push(13); break;
-  case "p": newArr.push(14); break;
-  case "q": newArr.push(15); break;
-  case "r": newArr.push(16); break;
-  case "s": newArr.push(17); break;
-  case "t": newArr.push(18); break;
-  case "u": newArr.push(19); break;
-  case "v": newArr.push(20); break;
-  case "z": newArr.push(21); break;
-
-}
-}
-console.log(newArr)
+let positionArray = []
+charactersArray.forEach(element => {
+  if (element == "d") {positionArray.push("4")}
+  else if (element == "g") {positionArray.push("7")}
+  else if (element == "n") { positionArray.push("12") }
+  else if (element == "u") { positionArray.push("19") }
+  else if (element == "z") { positionArray.push("21") }
 
 
+})
+
+console.log(positionArray)
+
+
+/* Non ho più familiarità con la sintassi dei cicli while e dei costrutti switch */
